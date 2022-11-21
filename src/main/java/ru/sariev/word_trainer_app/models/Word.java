@@ -1,4 +1,4 @@
-package ru.sariev.word_trainer_app;
+package ru.sariev.word_trainer_app.models;
 
 import javax.persistence.*;
 

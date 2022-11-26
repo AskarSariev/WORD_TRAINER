@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>New Word Page</title>
+</head>
+<body>
+
+<h1><center>Add a new word</h1>
+
+<form th:method="POST" th:action="@{/train/allwords}" th:object="${word}">
+    <label for="original">Enter an original word: </label>
+    <input type="text" th:field="*{original}" id="original"/>
+
+    <br/>
+    <label for="translation">Enter a translation: </label>
+    <input type="text" th:field="*{translation}" id="translation"/>
+
+    <br/>
+    <label for="status">Enter status: </label>
+    <input type="checkbox" th:field="*{status}" id="status"/>
+
+    <br/>
+    <input type="submit" value="Add"/>
+</form>
+
+
+</body>
+</html>

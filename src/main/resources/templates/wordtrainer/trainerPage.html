@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trainer Page</title>
+    <style>
+        form {
+            font-size: 1.5rem; /* Размер основного шрифта */
+        }
+    </style>
+</head>
+<body>
+
+<h1><center>Trainer</h1>
+
+<input type="button" value="GO BACK" onclick="window.location.href='/train/main'"/>
+
+<form style="text-align:center;" th:method="GET" th:object="${word}">
+
+    <a th:text="${word.original}">word</a>
+
+    <br/>
+    <hr/>
+
+    <a th:text="${word.translation}">word</a>
+
+</form>
+
+<input type="button" value="NEXT" onclick="window.location.href='/train/next'"/>
+
+<!--<label for="selection">Выборка</label>-->
+<!--<select id="selection" name="selection">-->
+<!--    <option value="ALL">Все</option>-->
+<!--    <option value="LEARNED">Выученные</option>-->
+<!--    <option value="UNLEARNED">Невыученные</option>-->
+<!--</select>-->
+
+<form th:method="GET" th:action="@{/train/{id}/editTrain(id=${word.getId()})}" th:object="${word}">
+    <input type="submit" value="EDIT"/>
+</form>
+
+
+</body>
+</html>

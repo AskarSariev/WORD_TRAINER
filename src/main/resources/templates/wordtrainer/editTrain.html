@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Word Page</title>
+</head>
+<body>
+
+<h1><center>Update word</h1>
+
+<form th:method="PATCH" th:action="@{/train/{id}/update(id=${word.getId()})}" th:object="${word}">
+    <label for="original">Enter an original word: </label>
+    <input type="text" th:field="*{original}" id="original"/>
+
+    <br/>
+    <label for="translation">Enter a translation: </label>
+    <input type="text" th:field="*{translation}" id="translation"/>
+
+    <br/>
+    <label for="status">Enter status: </label>
+    <input type="checkbox" th:field="*{status}" id="status"/>
+
+    <br/>
+    <input type="submit" value="Update"/>
+</form>
+
+
+</body>
+</html>

@@ -6,13 +6,15 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.sariev.word_trainer_app.models.Word;
 import ru.sariev.word_trainer_app.repository.WordsRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
 public class WordsService {
-    private int i = 0;
+    private int i;
 
     private WordsRepository wordsRepository;
 
@@ -46,7 +48,7 @@ public class WordsService {
         wordsRepository.deleteById(id);
     }
 
-    public Word getRandomWord() {
+    public Word selectionAll() {
         List<Word> list = getAllWords();
 
         if (i == list.size()) {
@@ -54,5 +56,33 @@ public class WordsService {
         }
 
         return list.get(i++);
+    }
+
+    public Word selectionLearned() {
+        List<Word> list = getAllWords().stream().filter(word -> word.isStatus()).collect(Collectors.toList());
+
+        if (i == list.size()) {
+            i = 0;
+        }
+
+        return list.get(i++);
+    }
+
+    public Word selectionUnLearned() {
+        List<Word> list = getAllWords().stream().filter(word -> !word.isStatus()).collect(Collectors.toList());
+
+        if (i == list.size()) {
+            i = 0;
+        }
+
+        return list.get(i++);
+    }
+
+    public int getI() {
+        return i;
+    }
+
+    public void setI(int i) {
+        this.i = i;
     }
 }

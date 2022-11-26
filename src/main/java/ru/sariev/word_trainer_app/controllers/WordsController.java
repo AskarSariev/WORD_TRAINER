@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.sariev.word_trainer_app.models.Word;
+import ru.sariev.word_trainer_app.services.Selection;
 import ru.sariev.word_trainer_app.services.WordsService;
 
 @Controller
@@ -12,10 +13,12 @@ import ru.sariev.word_trainer_app.services.WordsService;
 public class WordsController {
 
     private WordsService wordsService;
+    private Selection selection;
 
     @Autowired
     public WordsController(WordsService wordsService) {
         this.wordsService = wordsService;
+        selection = Selection.ALL;
     }
 
     @GetMapping("/main")
@@ -58,16 +61,43 @@ public class WordsController {
         return "redirect:allwords";
     }
 
-    @GetMapping("/trainer")
-    public String startTraining(Model model) {
-        model.addAttribute("word", wordsService.getRandomWord());
+    @PostMapping("/trainer")
+    public String startTraining(@ModelAttribute("selection") Selection getSelection, Model model) {
+        wordsService.setI(0);
+
+        if (getSelection.equals(Selection.ALL)) {
+            selection = Selection.ALL;
+            model.addAttribute("word", wordsService.selectionAll());
+        }
+
+        if (getSelection.equals(Selection.LEARNED)) {
+            selection = Selection.LEARNED;
+            model.addAttribute("word", wordsService.selectionLearned());
+        }
+
+        if (getSelection.equals(Selection.UNLEARNED)) {
+            selection = Selection.UNLEARNED;
+            model.addAttribute("word", wordsService.selectionUnLearned());
+        }
+
         return "wordtrainer/trainerPage";
     }
 
     @GetMapping("/next")
     public String nextWord(Model model) {
-        model.addAttribute("word", wordsService.getRandomWord());
-        return "redirect:trainer";
+
+        if (selection.equals(Selection.ALL)) {
+            model.addAttribute("word", wordsService.selectionAll());
+        }
+
+        if (selection.equals(Selection.LEARNED)) {
+            model.addAttribute("word", wordsService.selectionLearned());
+        }
+
+        if (selection.equals(Selection.UNLEARNED)) {
+            model.addAttribute("word", wordsService.selectionUnLearned());
+        }
+        return "wordtrainer/trainerPage";
     }
 
     @GetMapping("/{id}/editTrain")

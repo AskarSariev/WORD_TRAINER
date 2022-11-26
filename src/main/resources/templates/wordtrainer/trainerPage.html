@@ -28,13 +28,6 @@
 
 <input type="button" value="NEXT" onclick="window.location.href='/train/next'"/>
 
-<!--<label for="selection">Выборка</label>-->
-<!--<select id="selection" name="selection">-->
-<!--    <option value="ALL">Все</option>-->
-<!--    <option value="LEARNED">Выученные</option>-->
-<!--    <option value="UNLEARNED">Невыученные</option>-->
-<!--</select>-->
-
 <form th:method="GET" th:action="@{/train/{id}/editTrain(id=${word.getId()})}" th:object="${word}">
     <input type="submit" value="EDIT"/>
 </form>

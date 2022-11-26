@@ -10,7 +10,19 @@
 
 <input type="button" value="Show all words" onclick="window.location.href='/train/allwords'"/>
 <br/>
-<input type="button" value="Trainer" onclick="window.location.href='/train/trainer'"/>
+
+
+<form th:method="POST" th:action="@{/train/trainer}" th:object="${selection}">
+    <label for="selection">Выборка</label>
+    <select id="selection" name="selection">
+        <option value="ALL">Все</option>
+        <option value="LEARNED">Выученные</option>
+        <option value="UNLEARNED">Невыученные</option>
+    </select>
+
+    <input type="submit" value="Trainer"/>
+</form>
+
 
 </body>
 </html>

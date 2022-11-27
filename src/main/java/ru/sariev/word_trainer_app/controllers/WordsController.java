@@ -13,12 +13,10 @@ import ru.sariev.word_trainer_app.services.WordsService;
 public class WordsController {
 
     private WordsService wordsService;
-    private Selection selection;
 
     @Autowired
     public WordsController(WordsService wordsService) {
         this.wordsService = wordsService;
-        selection = Selection.ALL;
     }
 
     @GetMapping("/main")
@@ -62,24 +60,8 @@ public class WordsController {
     }
 
     @PostMapping("/trainer")
-    public String startTraining(@ModelAttribute("selection") Selection getSelection, Model model) {
-        wordsService.setI(0);
-
-        if (getSelection.equals(Selection.ALL)) {
-            selection = Selection.ALL;
-            model.addAttribute("word", wordsService.selectionAll());
-        }
-
-        if (getSelection.equals(Selection.LEARNED)) {
-            selection = Selection.LEARNED;
-            model.addAttribute("word", wordsService.selectionLearned());
-        }
-
-        if (getSelection.equals(Selection.UNLEARNED)) {
-            selection = Selection.UNLEARNED;
-            model.addAttribute("word", wordsService.selectionUnLearned());
-        }
-
+    public String startTraining(@ModelAttribute("selection") Selection selectionFromView, Model model) {
+        model.addAttribute("word", wordsService.getNextWord(selectionFromView));
         return "wordtrainer/hideTranslationPage";
     }
 
@@ -91,18 +73,7 @@ public class WordsController {
 
     @GetMapping("/next")
     public String nextWord(Model model) {
-
-        if (selection.equals(Selection.ALL)) {
-            model.addAttribute("word", wordsService.selectionAll());
-        }
-
-        if (selection.equals(Selection.LEARNED)) {
-            model.addAttribute("word", wordsService.selectionLearned());
-        }
-
-        if (selection.equals(Selection.UNLEARNED)) {
-            model.addAttribute("word", wordsService.selectionUnLearned());
-        }
+        model.addAttribute("word", wordsService.getNextWord());
         return "wordtrainer/hideTranslationPage";
     }
 

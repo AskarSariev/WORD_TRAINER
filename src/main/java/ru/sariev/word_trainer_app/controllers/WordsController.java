@@ -3,10 +3,13 @@ package ru.sariev.word_trainer_app.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import ru.sariev.word_trainer_app.models.Word;
 import ru.sariev.word_trainer_app.services.Selection;
 import ru.sariev.word_trainer_app.services.WordsService;
+
+import javax.validation.Valid;
 
 @Controller
 @RequestMapping("train")
@@ -36,7 +39,10 @@ public class WordsController {
     }
 
     @PostMapping("/allwords")
-    public String createNewWord(@ModelAttribute("word") Word word) {
+    public String createNewWord(@ModelAttribute("word") @Valid Word word, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            return "wordtrainer/newWordPage";
+        }
         wordsService.save(word);
         return "redirect:allwords";
     }
@@ -48,7 +54,11 @@ public class WordsController {
     }
 
     @PatchMapping("/{id}")
-    public String updateWord(@ModelAttribute("word") Word word, @PathVariable("id") int id) {
+    public String updateWord(@ModelAttribute("word") @Valid Word word, BindingResult bindingResult,
+                             @PathVariable("id") int id) {
+        if (bindingResult.hasErrors()) {
+            return "wordtrainer/editPage";
+        }
         wordsService.update(id, word);
         return "redirect:allwords";
     }
@@ -84,7 +94,11 @@ public class WordsController {
     }
 
     @PatchMapping("/{id}/updateWordOnTraining")
-    public String updateWordOnTraining(@ModelAttribute("word") Word word, @PathVariable("id") int id) {
+    public String updateWordOnTraining(@ModelAttribute("word") @Valid Word word, BindingResult bindingResult,
+                                       @PathVariable("id") int id) {
+        if (bindingResult.hasErrors()) {
+            return "wordtrainer/editTrainPage";
+        }
         wordsService.update(id, word);
         return "wordtrainer/trainerPage";
     }

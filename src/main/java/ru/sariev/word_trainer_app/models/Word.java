@@ -1,6 +1,7 @@
 package ru.sariev.word_trainer_app.models;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "Words")
@@ -12,9 +13,11 @@ public class Word {
     private int id;
 
     @Column(name = "original")
+    @NotEmpty(message = "Word shouldn't be empty")
     private String original;
 
     @Column(name = "translation")
+    @NotEmpty(message = "Word shouldn't be empty")
     private String translation;
 
     @Column(name = "status")

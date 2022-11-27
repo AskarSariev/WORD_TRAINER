@@ -12,12 +12,14 @@
 
     <label for="original">Enter an original word: </label>
     <input type="text" th:field="*{original}" id="original"/>
+    <div style="color:red" th:if="${#fields.hasErrors('original')}" th:errors="*{original}">Original error</div>
 
     <br/>
     <br/>
 
     <label for="translation">Enter a translation: </label>
     <input type="text" th:field="*{translation}" id="translation"/>
+    <div style="color:red" th:if="${#fields.hasErrors('translation')}" th:errors="*{translation}">Translation error</div>
 
     <br/>
     <br/>

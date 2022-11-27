@@ -10,11 +10,14 @@
 
         table {
             border-collapse: collapse;
+            width: 100%;
         }
+
         th, td {
             border: 1px solid black;
             vertical-align: center;
             text-align: center;
+            word-wrap: break-word;
         }
         input {
             background: #008EB0; /* Синий цвет фона */
@@ -29,18 +32,24 @@
     </style>
 </head>
 
-<h1><center>Show all words</h1>
+<h1><center>Dictionary</h1>
 
-<input type="button" value="ADD NEW WORD" onclick="window.location.href='/train/new'"/>
-<input type="button" value="GO BACK TO MAIN PAGE" onclick="window.location.href='/train/main'"/>
+<input type="button" value="RETURN" onclick="window.location.href='/train/main'"/>
 
 <br/>
 
-<table style="width:100%">
+<input type="button" value="ADD NEW WORD" onclick="window.location.href='/train/new'"/>
+
+<br/>
+<br/>
+
+<table>
     <tr>
         <th>Word in original</th>
         <th>Translation</th>
-        <th>Status</th>
+        <th>Status<br>
+            learned = true<br>
+            unlearned = false</th>
         <th>Actions</th>
     </tr>
     <div th:each="word : ${words}">

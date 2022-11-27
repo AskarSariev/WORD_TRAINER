@@ -8,12 +8,13 @@
 
 <h1><center>Trainer for memorizing new words</h1>
 
-<input type="button" value="Show all words" onclick="window.location.href='/train/allwords'"/>
+<input type="button" value="SHOW ALL WORDS" onclick="window.location.href='/train/allwords'"/>
+<br/>
+<br/>
 <br/>
 
-
 <form th:method="POST" th:action="@{/train/trainer}" th:object="${selection}">
-    <label for="selection">Выборка</label>
+    <label for="selection">Selection of words (All / Learned / Unlearned)</label>
     <select id="selection" name="selection">
         <option value="ALL">Все</option>
         <option value="LEARNED">Выученные</option>

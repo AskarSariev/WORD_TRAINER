@@ -38,19 +38,19 @@ public class WordsController {
     }
 
     @PostMapping("/allwords")
-    public String createWord(@ModelAttribute("word") Word word) {
+    public String createNewWord(@ModelAttribute("word") Word word) {
         wordsService.save(word);
         return "redirect:allwords";
     }
 
     @GetMapping("/{id}/edit")
-    public String edit(Model model, @PathVariable("id") int id) {
+    public String editWord(Model model, @PathVariable("id") int id) {
         model.addAttribute("word", wordsService.findOne(id));
-        return "wordtrainer/edit";
+        return "wordtrainer/editPage";
     }
 
     @PatchMapping("/{id}")
-    public String update(@ModelAttribute("word") Word word, @PathVariable("id") int id) {
+    public String updateWord(@ModelAttribute("word") Word word, @PathVariable("id") int id) {
         wordsService.update(id, word);
         return "redirect:allwords";
     }
@@ -80,6 +80,12 @@ public class WordsController {
             model.addAttribute("word", wordsService.selectionUnLearned());
         }
 
+        return "wordtrainer/hideTranslationPage";
+    }
+
+    @GetMapping("/{id}/showTranslation")
+    public String showTranslation(@PathVariable("id") int id, Model model) {
+        model.addAttribute("word", wordsService.findOne(id));
         return "wordtrainer/trainerPage";
     }
 
@@ -97,17 +103,17 @@ public class WordsController {
         if (selection.equals(Selection.UNLEARNED)) {
             model.addAttribute("word", wordsService.selectionUnLearned());
         }
-        return "wordtrainer/trainerPage";
+        return "wordtrainer/hideTranslationPage";
     }
 
-    @GetMapping("/{id}/editTrain")
-    public String editTrain(Model model, @PathVariable("id") int id) {
+    @GetMapping("/{id}/editWordOnTraining")
+    public String editWordOnTraining(Model model, @PathVariable("id") int id) {
         model.addAttribute("word", wordsService.findOne(id));
-        return "wordtrainer/editTrain";
+        return "wordtrainer/editTrainPage";
     }
 
-    @PatchMapping("/{id}/update")
-    public String updateTrain(@ModelAttribute("word") Word word, @PathVariable("id") int id) {
+    @PatchMapping("/{id}/updateWordOnTraining")
+    public String updateWordOnTraining(@ModelAttribute("word") Word word, @PathVariable("id") int id) {
         wordsService.update(id, word);
         return "wordtrainer/trainerPage";
     }

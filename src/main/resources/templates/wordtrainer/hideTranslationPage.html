@@ -7,6 +7,9 @@
         form {
             font-size: 1.5rem; /* Размер основного шрифта */
         }
+        div {
+            text-align: center;
+        }
     </style>
 </head>
 <body>
@@ -22,9 +25,13 @@
     <br/>
     <hr/>
 
-    <a th:text="${word.translation}">translation</a>
-
 </form>
+
+<div>
+    <form th:method="GET" th:action="@{/train/{id}/showTranslation(id=${word.getId()})}" th:object="${word}">
+        <input type="submit" value="SHOW TRANSLATION"/>
+    </form>
+</div>
 
 <br/>
 <br/>

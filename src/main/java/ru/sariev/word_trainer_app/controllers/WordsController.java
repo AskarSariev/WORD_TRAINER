@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.*;
 import ru.sariev.word_trainer_app.models.Word;
 import ru.sariev.word_trainer_app.services.Selection;
 import ru.sariev.word_trainer_app.services.WordsService;
-
 import javax.validation.Valid;
 
 @Controller

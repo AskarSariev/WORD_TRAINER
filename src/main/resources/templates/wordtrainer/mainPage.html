@@ -3,25 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <title>Main Page</title>
+    <style>
+        body {
+            background: #E0FFFF;
+            font-size: 15px;
+        }
+        input, select {
+            width:  150px;
+            height: 30px;
+            border-radius: 10px 10px 10px 10px;
+        }
+        .but {
+            background: #FDD7E4;
+        }
+    </style>
 </head>
 <body>
 
 <h1><center>Trainer for memorizing new words</h1>
 
-<input type="button" value="SHOW ALL WORDS" onclick="window.location.href='/train/allwords'"/>
+<input class="but" type="button" value="SHOW ALL WORDS" onclick="window.location.href='/train/allwords'"/>
 <br/>
 <br/>
 <br/>
 
 <form th:method="POST" th:action="@{/train/trainer}" th:object="${selection}">
-    <label for="selection">Selection of words (All / Learned / Unlearned)</label>
+    <label for="selection"><b>Selection of words (All / Learned / Unlearned)</b>b></label>
     <select id="selection" name="selection">
         <option value="ALL">Все</option>
         <option value="LEARNED">Выученные</option>
         <option value="UNLEARNED">Невыученные</option>
     </select>
 
-    <input type="submit" value="Trainer"/>
+    <input class="but" type="submit" value="Trainer"/>
 </form>
 
 

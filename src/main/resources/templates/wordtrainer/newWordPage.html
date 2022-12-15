@@ -3,10 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>New Word Page</title>
+    <style>
+        body {
+            background: #E0FFFF;
+        }
+        label {
+            font-size: 20px;
+        }
+        input {
+            width:  200px;
+            height: 30px;
+            border-radius: 10px 10px 10px 10px;
+        }
+        .but {
+            width:  100px;
+            height: 30px;
+            border-radius: 10px 10px 10px 10px;
+            background: #FDD7E4;
+        }
+    </style>
 </head>
 <body>
 
-<h1><center>Add a new word</h1>
+<h1>Add a new word</h1>
 
 <form th:method="POST" th:action="@{/train/allwords}" th:object="${word}">
 
@@ -30,7 +49,7 @@
     <br/>
     <br/>
 
-    <input type="submit" value="Add"/>
+    <input class="but" type="submit" value="Add"/>
 
 </form>
 

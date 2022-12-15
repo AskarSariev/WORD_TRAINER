@@ -11,7 +11,7 @@ import ru.sariev.word_trainer_app.services.WordsService;
 import javax.validation.Valid;
 
 @Controller
-@RequestMapping("train")
+@RequestMapping("/train")
 public class WordsController {
 
     private WordsService wordsService;

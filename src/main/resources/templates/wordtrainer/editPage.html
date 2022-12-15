@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <title>Update Word Page</title>
 </head>
+<style>
+    body {
+        background: #E0FFFF;
+    }
+    label {
+        font-size: 20px;
+    }
+    input {
+        width:  200px;
+        height: 30px;
+        border-radius: 10px 10px 10px 10px;
+    }
+    .but {
+        width:  100px;
+        height: 30px;
+        border-radius: 10px 10px 10px 10px;
+        background: #8D38C9;
+    }
+</style>
+
 <body>
 
-<h1><center>Update word</h1>
+<h1>Update word</h1>
 
 <form th:method="PATCH" th:action="@{/train/{id}(id=${word.getId()})}" th:object="${word}">
 
@@ -30,7 +50,7 @@
     <br/>
     <br/>
 
-    <input type="submit" value="Update"/>
+    <input class="but" type="submit" value="Update"/>
 
 </form>
 

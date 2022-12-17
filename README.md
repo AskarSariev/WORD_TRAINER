@@ -42,7 +42,7 @@
 
       <image src="/images/LoginPage.jpg" alt="LoginPage">
 
-      Users with username and password are keeping in application memory
+      Users with username and password are keeping in an application memory
 
       User "admin":
 
@@ -59,3 +59,14 @@
 2. Choose "Show all words" or "Trainer"
 
       <image src="/images/MainPage.jpg" alt="MainPage">
+
+3. Show all words
+
+      <image src="/images/AllWordsPage.jpg" alt="AllWordsPage">
+      <image src="/images/AddNewWord.jpg" alt="AddNewWord">
+      <image src="/images/UpdateWordPage.jpg" alt="UpdateWordPage">
+
+4. Trainer
+
+      <image src="/images/TrainerPage.jpg" alt="TrainerPage">
+      <image src="/images/TrainerPageWithTranslation.jpg" alt="TrainerPageWithTranslation">

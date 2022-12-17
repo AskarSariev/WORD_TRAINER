@@ -42,7 +42,7 @@
 
       <image src="/images/LoginPage.jpg" alt="LoginPage">
 
-      Users with username and password are keeping in an application memory
+      Users with username and password are keeping in the application memory
 
       User "admin":
 

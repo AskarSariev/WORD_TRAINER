@@ -70,5 +70,5 @@ WordTrainerApp is a web application for learning foreign words.
 
 4. Trainer
 
-      <image src="/images/TrainerPage.jpg" alt="TrainerPage">
-      <image src="/images/TrainerPageWithTranslation.jpg" alt="TrainerPageWithTranslation">
+      <image src="/images/TrainerPage.jpg" alt="TrainerPage" width="250" height="150">
+      <image src="/images/TrainerPageWithTranslation.jpg" alt="TrainerPageWithTranslation" width="250" height="150">

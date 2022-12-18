@@ -1,5 +1,7 @@
 # WordTrainerApp
 
+WordTrainerApp is a web application for learning foreign words.
+
 ### Tools
 
 ![Java 11](https://img.shields.io/badge/-Java11-blue?style=for-the-badge)

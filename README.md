@@ -4,13 +4,13 @@ WordTrainerApp is a web application for learning foreign words.
 
 ### Tools
 
-![Java 11](https://img.shields.io/badge/-Java11-blue?style=for-the-badge)
-![Spring](https://img.shields.io/badge/-Spring_Web-success?style=for-the-badge)
-![Spring](https://img.shields.io/badge/-Spring_Data_JPA-success?style=for-the-badge)
-![Spring](https://img.shields.io/badge/-Spring_Security-success?style=for-the-badge)
-![Spring](https://img.shields.io/badge/-PostgreSQL-9cf?style=for-the-badge)
-![Thymeleaf](https://img.shields.io/badge/-Thymeleaf-yellow?style=for-the-badge)
-![Thymeleaf](https://img.shields.io/badge/-Validation-red?style=for-the-badge)
+![Java 11](https://img.shields.io/badge/-Java11-blue?style=plastic&appveyor)
+![Spring](https://img.shields.io/badge/-Spring_Web-success?style=plastic&appveyor)
+![Spring](https://img.shields.io/badge/-Spring_Data_JPA-success?style=plastic&appveyor)
+![Spring](https://img.shields.io/badge/-Spring_Security-success?style=plastic&appveyor)
+![Spring](https://img.shields.io/badge/-PostgreSQL-9cf?style=plastic&appveyor)
+![Thymeleaf](https://img.shields.io/badge/-Thymeleaf-yellow?style=plastic&appveyor)
+![Thymeleaf](https://img.shields.io/badge/-Validation-red?style=plastic&appveyor)
 
 ### Getting started
 
@@ -42,7 +42,7 @@ WordTrainerApp is a web application for learning foreign words.
 
 1. Enter username, password
 
-      <image src="/images/LoginPage.jpg" alt="LoginPage">
+      <image src="/images/LoginPage.jpg" alt="LoginPage" width="200" height="150">
 
       Users with username and password are keeping in the application memory
 
@@ -65,8 +65,8 @@ WordTrainerApp is a web application for learning foreign words.
 3. Show all words
 
       <image src="/images/AllWordsPage.jpg" alt="AllWordsPage">
-      <image src="/images/AddNewWord.jpg" alt="AddNewWord">
-      <image src="/images/UpdateWordPage.jpg" alt="UpdateWordPage">
+      <image src="/images/AddNewWord.jpg" alt="AddNewWord" width="250" height="150">
+      <image src="/images/UpdateWordPage.jpg" alt="UpdateWordPage" width="250" height="150">
 
 4. Trainer
 

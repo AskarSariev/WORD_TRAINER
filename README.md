@@ -1,6 +1,12 @@
 # WordTrainerApp
 
+<image src="/images/WordTrainer.png" alt="WordTrainer" width="150" height="150">
+
+<br/>
+
 WordTrainerApp is a web application for learning foreign words.
+
+<hr/>
 
 ### Tools
 
